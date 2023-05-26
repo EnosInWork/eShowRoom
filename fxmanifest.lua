@@ -8,7 +8,7 @@ shared_scripts {
 }
 
 client_scripts {
-    --- RageUI
+    --------------------------
     "src/RMenu.lua",
     "src/menu/RageUI.lua",
     "src/menu/Menu.lua",
@@ -19,11 +19,6 @@ client_scripts {
     "src/menu/panels/*.lua",
     "src/menu/panels/*.lua",
     "src/menu/windows/*.lua",
-    --- Cl side
-    "client/*.lua",
-}
-
-server_scripts {
-    '@es_extended/locale.lua',
-    '@mysql-async/lib/MySQL.lua',
+    --------------------------
+    "client.lua",
 }

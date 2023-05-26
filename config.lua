@@ -31,6 +31,7 @@ Config.Showrooms = {
         ExpositionPosition = {
             -----------------------------------------------------------------------
             -- position = ou le véhicule seras positioné / vehicles = stockage des véhicules en expo, ne pas toucher.
+            -- Ajouté autant de position que vous souhaitez
             -----------------------------------------------------------------------
             {position = vector4(946.90972900391,-151.13523864746,73.539161682129, 236.65097045898), vehicles = {}}, 
             {position = vector4(944.69885253906,-154.67977905273,73.542823791504, 239.95260620117), vehicles = {}},

@@ -11,6 +11,11 @@ elseif Config.Framework == "newEsx" then
     ESX = exports["es_extended"]:getSharedObject()
 end
 
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+	ESX.PlayerData = xPlayer
+end)
+
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)  
 	ESX.PlayerData.job = job  
@@ -37,10 +42,10 @@ function KeyboardInput(TextEntry, ExampleText, MaxStringLenght)
 end
 
 function ShowRoom(type)
+    FreezeEntityPosition(PlayerPedId(), true)
     local showroom = Config.Showrooms[type]
     local ShowroomMain = RageUI.CreateMenu("ShowRoom", type)
     ShowroomMain:SetRectangleBanner(showroom.ColorMenuR, showroom.ColorMenuG, showroom.ColorMenuB, showroom.ColorMenuA)
-
     RageUI.Visible(ShowroomMain, not RageUI.Visible(ShowroomMain))
     while ShowroomMain do
         Citizen.Wait(0)
@@ -69,6 +74,7 @@ function ShowRoom(type)
 
         if not RageUI.Visible(ShowroomMain) then
             ShowroomMain = RMenu:DeleteType("ShowroomMain", true)
+            FreezeEntityPosition(PlayerPedId(), false)
         end
     end
 end
@@ -113,7 +119,7 @@ function SpawnVehicle(type, index, model)
                 if DoesEntityExist(vehicle) then
                     local heading = GetEntityHeading(vehicle)
                     SetEntityHeading(vehicle, heading + 1.0)
-                    Citizen.Wait(50)
+                    Citizen.Wait(30)
                 else
                     break
                 end

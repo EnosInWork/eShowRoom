@@ -1,3 +1,3 @@
 # eShowRoom
 
-discord.gg/5dev
+https://discord.gg/5dev
